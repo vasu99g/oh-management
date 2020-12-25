@@ -15,8 +15,8 @@ sign_up_btn.addEventListener("click", () => {
 
 sign_in_btn.addEventListener("click", () => {
     // student login page
-    instructor_form.style.transition = "all 0.2s 0.7s";
-    class_form.style.transition = "all 0.2s 0.7s";
+    instructor_form.style.transition = "all 0.5s 1s";
+    class_form.style.transition = "all 0.5s 1s";
 
     container.classList.remove("sign-up-mode");
 });
