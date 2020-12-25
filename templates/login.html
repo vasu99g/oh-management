@@ -8,43 +8,63 @@
             crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/static/style.css"/>
-    <title>Sign In</title>
+    <title>Home | Sign In</title>
 </head>
 <body>
 <div class="container">
     <div class="forms-container">
         <div class="signin-signup">
-            <form action="#" class="sign-in-form">
+            <form action="{{ url_for("student_login") }}" class="sign-in-form" method="POST">
                 <h2 class="title">Student Sign In</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Full Name"/>
+                    <input type="text" name="name" placeholder="Full Name"/>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="UW Email"/>
+                    <input type="text" name="email" placeholder="UW Email"/>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-video"></i>
-                    <input type="text" placeholder="Zoom Meeting ID"/>
+                    <input type="text" name="zoom_id" placeholder="Zoom Meeting ID"/>
                 </div>
                 <input type="submit" value="Login" class="btn solid"/>
             </form>
-            <form action="#" class="sign-up-form">
+            <form action="#" class="sign-up-form" id="instructor-form">
                 <h2 class="title">Instructor Sign In</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="Full Name"/>
                 </div>
                 <div class="input-field">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="Email"/>
+                    <i class="fas fa-laptop-code"></i>
+                    <input type="text" placeholder="Class Code"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Class Password"/>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-video"></i>
                     <input type="text" placeholder="Zoom Meeting ID"/>
                 </div>
                 <input type="submit" class="btn" value="Login"/>
+            </form>
+            <form action="#" class="sign-up-form" id="class-form">
+                <h2 class="title">Create a New Class</h2>
+                <div class="input-field">
+                    <i class="fas fa-laptop-code"></i>
+                    <input type="text" placeholder="Class Code"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Class Password"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Staff Email"/>
+                </div>
+                <input type="submit" class="btn" value="Create Class"/>
             </form>
         </div>
     </div>
@@ -54,7 +74,8 @@
             <div class="content">
                 <h3>Instructor or Teaching Assistant ?</h3>
                 <p>
-                    Welcome! Please sign in as an instructor, create a new class, or create a new office hours management session.
+                    Welcome! Please sign in as an instructor, create a new class, or create a new office hours
+                    management session.
                 </p>
                 <button class="btn transparent" id="sign-up-btn">
                     TA Login / New Session
@@ -64,9 +85,16 @@
         </div>
         <div class="panel right-panel">
             <div class="content">
-                <h3>Return To Student Sign In ?</h3>
+                <h3>First Time ?</h3>
+                <p>
+                    Please set up and create a new class.
+                </p>
+                <button class="btn transparent" id="class-form-btn">
+                    Create a Class
+                </button>
                 <br>
-                <button class="btn transparent" id="sign-in-btn">
+                <br>
+                <button class="btn special" id="sign-in-btn">
                     Student Sign In
                 </button>
             </div>
