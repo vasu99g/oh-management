@@ -25,15 +25,28 @@ class_form_btn.addEventListener("click", () => {
     instructor_form.style.transition = "0s";
     class_form.style.transition = "0s";
 
+    const instructor_page_title = document.getElementById("instructor-page-title");
+    const instructor_page_para = document.getElementById("instructor-page-para");
+
     if (class_form_mode) {
         instructor_form.style.visibility = "visible";
         class_form.style.visibility = "hidden";
+
         class_form_btn.innerHTML = "Create a Class";
+
+        instructor_page_title.innerHTML = "First Time ?";
+        instructor_page_para.innerHTML = "Please create and set up a new class.";
+
         class_form_mode = false;
     } else {
         instructor_form.style.visibility = "hidden";
         class_form.style.visibility = "visible";
+
         class_form_btn.innerHTML = "Instructor Login";
+
+        instructor_page_title.innerHTML = "Instructor Sign In ?";
+        instructor_page_para.innerHTML = "Log in as an instructor or start a new session.";
+
         class_form_mode = true;
     }
 });

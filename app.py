@@ -13,12 +13,12 @@ db = SQLAlchemy(app)
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
-    email = db.Column(db.String(100))
+    class_code = db.Column(db.String(11))
     zoom_id = db.Column(db.String(15))
 
-    def __init__(self, name, email, zoom_id):
+    def __init__(self, name, class_code, zoom_id):
         self.name = name
-        self.email = email
+        self.class_code = class_code
         self.zoom_id = zoom_id
 
 
@@ -36,10 +36,10 @@ def student_dashboard(student_id):
 def student_login():
     if request.method == "POST":
         name = request.form["name"]
-        email = request.form["email"]
+        class_code = request.form["class_code"]
         zoom_id = request.form["zoom_id"]
 
-        student = Student(name, email, zoom_id)
+        student = Student(name, class_code, zoom_id)
         db.session.add(student)
         db.session.commit()
 
